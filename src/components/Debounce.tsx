@@ -1,20 +1,5 @@
-import { useEffect, useState } from "react"
-
-function useDebounce (search: string, delay: number) {
-    const [debouncedValue, setDebouncedValue] = useState("");
-
-    useEffect(() => {   
-        const handler = setTimeout(() => {
-            setDebouncedValue(search);
-        }, delay);
-
-        return () => {
-            clearTimeout(handler);
-        }
-    }, [search]);
-
-    return debouncedValue;
-}
+import { useState } from "react"
+import { useDebounce } from "../custom-hooks/useDebounce";
 
 const Debounce = () => {
     const [search, setSearch] = useState("");
